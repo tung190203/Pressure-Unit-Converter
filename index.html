@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pressure Unit Converter</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Pressure Unit Converter</h1>
+        <form class="mt-4">
+            <div class="form-group">
+                <label for="kPa">kPa - kilo Pascal:</label>
+                <input type="number" class="form-control" id="kPa" oninput="convertFromKpa(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="mbar">mbar - milli bar:</label>
+                <input type="number" class="form-control" id="mbar" oninput="convertFromMbar(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="bar">bar - bar:</label>
+                <input type="number" class="form-control" id="bar" oninput="convertFromBar(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="torr">Torr - torr:</label>
+                <input type="number" class="form-control" id="torr" oninput="convertFromTorr(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="mmHg">mmHg - millimeter mercury:</label>
+                <input type="number" class="form-control" id="mmHg" oninput="convertFromMmHg(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="psi">psi - pound square inch:</label>
+                <input type="number" class="form-control" id="psi" oninput="convertFromPsi(this)">
+            </div>
+            <div class="form-group">
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function convertFromKpa(input) {
+            var kpa = parseFloat(input.value);
+            document.getElementById("mbar").value = (kpa * 10).toFixed(2);
+            document.getElementById("bar").value = (kpa / 1000).toFixed(4);
+            document.getElementById("torr").value = (kpa * 7.50062).toFixed(4);
+            document.getElementById("mmHg").value = (kpa * 7.50062).toFixed(4);
+            document.getElementById("psi").value = (kpa * 0.06894757).toFixed(4);
+        }
+
+        function convertFromMbar(input) {
+            var mbar = parseFloat(input.value);
+            document.getElementById("kPa").value = (mbar / 10).toFixed(2);
+            document.getElementById("bar").value = (mbar / 1000).toFixed(4);
+            document.getElementById("torr").value = (mbar / 1.333224).toFixed(4);
+            document.getElementById("mmHg").value = (mbar / 1.333224).toFixed(4);
+            document.getElementById("psi").value = (mbar * 0.0006894757).toFixed(6);
+        }
+
+        function convertFromBar(input) {
+            var bar = parseFloat(input.value);
+            document.getElementById("kPa").value = (bar * 1000).toFixed(2);
+            document.getElementById("mbar").value = (bar * 1000).toFixed(2);
+            document.getElementById("torr").value = (bar * 7500.62).toFixed(4);
+            document.getElementById("mmHg").value = (bar * 7500.62).toFixed(4);
+            document.getElementById("psi").value = (bar * 14.5037744).toFixed(7);
+        }
+
+        function convertFromTorr(input) {
+            var torr = parseFloat(input.value);
+            document.getElementById("kPa").value = (torr / 7.50062).toFixed(2);
+            document.getElementById("mbar").value = (torr * 1.333224).toFixed(6);
+            document.getElementById("bar").value = (torr / 7500.62).toFixed(4);
+            document.getElementById("mmHg").value = (torr * 1).toFixed(0);
+            document.getElementById("psi").value = (torr / 51.715).toFixed(3);
+        }
+
+        function convertFromMmHg(input) {
+            var mmHg = parseFloat(input.value);
+            document.getElementById("kPa").value = (mmHg / 7.50062).toFixed(2);
+            document.getElementById("mbar").value = (mmHg * 1.333224).toFixed(6);
+            document.getElementById("bar").value = (mmHg / 7500.62).toFixed(4);
+            document.getElementById("torr").value = (mmHg * 1).toFixed(0);
+            document.getElementById("psi").value = (mmHg / 51.715).toFixed(3);
+        }
+
+        function convertFromPsi(input) {
+            var psi = parseFloat(input.value);
+            document.getElementById("kPa").value = (psi / 0.06894757).toFixed(2);
+            document.getElementById("mbar").value = (psi / 0.0006894757).toFixed(2);
+            document.getElementById("bar").value = (psi / 14.5037744).toFixed(8);
+            document.getElementById("torr").value = (psi * 51.715).toFixed(3);
+            document.getElementById("mmHg").value = (psi * 51.715).toFixed(3);
+        }
+    </script>
+
+    <!-- Link to Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
